@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Showcases
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Showcases</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list>
+    <ion-item type="button" (click)="goToPage('privacy')">
+      <h2>Privacy</h2>
+    </ion-item>
+    <ion-item type="button" (click)="goToPage('screen-views')">
+      <h2>Screen Views</h2>
+    </ion-item>
+    <ion-item type="button" (click)="goToPage('transactions')">
+      <h2>Transactions</h2>
+    </ion-item>
+    <ion-item type="button" (click)="goToPage('dynamic-variables')">
+      <h2>Dynamic Variables</h2>
+    </ion-item>
+  </ion-list>
+</ion-content>
