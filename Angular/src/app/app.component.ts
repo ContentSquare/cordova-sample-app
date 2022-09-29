@@ -3,7 +3,7 @@ import { Platform } from '@ionic/angular';
 import { ContentsquareCDVPlugin } from '@contentsquare/cordova-plugin-types';
 
 declare const window: any;
-declare const contentsquarePlugin: ContentsquareCDVPlugin;
+declare const ContentsquarePlugin: ContentsquareCDVPlugin;
 
 @Component({
   selector: 'app-root',
@@ -20,7 +20,7 @@ export class AppComponent {
       window.handleOpenURL = (url)=>{
         console.log('received url: ' + url);
 
-        contentsquarePlugin.handleURL(url,() => {
+        ContentsquarePlugin.handleURL(url,() => {
           console.log('Success');
         }, (message) => {
           console.log(message);
