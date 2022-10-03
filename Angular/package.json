@@ -10,8 +10,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "add-url-scheme-qa": "ionic cordova plugin add cordova-plugin-customurlscheme --variable URL_SCHEME=cs-com.contentsquare.cordova.testapp.qa",
-    "add-url-scheme": "ionic cordova plugin add cordova-plugin-customurlscheme --variable URL_SCHEME=cs-com.contentsquare.cordova.testapp",
+    "add-url-scheme-qa": "ionic cordova plugin add cordova-plugin-customurlscheme --variable URL_SCHEME=cs-com.contentsquare.sampleapp.cordova.angular.qa",
+    "add-url-scheme": "ionic cordova plugin add cordova-plugin-customurlscheme --variable URL_SCHEME=cs-com.contentsquare.sampleapp.cordova.angular",
     "build-ios-qa": "gulp cordova-angular-sample-app-qa && ionic cordova platform rm ios && npm run add-url-scheme-qa && ionic cordova platform add ios && ionic cordova build ios --device --debug --buildConfig",
     "build-ios": "gulp cordova-angular-sample-app && ionic cordova platform rm ios && npm run add-url-scheme && ionic cordova platform add ios && ionic cordova build ios --emulator --release --prod --buildConfig",
     "build-android-qa": "gulp cordova-angular-sample-app-qa && ionic cordova platform rm android && npm run add-url-scheme-qa && ionic cordova platform add android && ionic cordova build android --debug --buildConfig",
@@ -88,7 +88,7 @@
       "cordova-plugin-ionic-webview": {},
       "cordova-plugin-ionic-keyboard": {},
       "cordova-plugin-customurlscheme": {
-        "URL_SCHEME": "cs-com.contentsquare.cordova.testapp.qa"
+        "URL_SCHEME": "cs-com.contentsquare.sampleapp.cordova.angular.qa"
       }
     },
     "platforms": [

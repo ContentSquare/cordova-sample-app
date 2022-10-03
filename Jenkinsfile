@@ -116,40 +116,6 @@ pipeline {
             }
         }
 
-        stage('build ios and android QA artefacts') { 
-            steps { 
-                dir("Angular") { 
-                    script {
-                        sh label: "Remove platforms folder",
-                            script: "rm -rf platforms"
-                        sh label: "build ios QA artefact",
-                            script: "npm run build-ios-qa"
-                        sh label: "build android QA artefact",
-                            script: "npm run build-android-qa"
-                    }
-                }
-            }
-        }
-
-        stage('copy QA artefacts') { 
-            steps { 
-                script { 
-                    ["${env.ANDROID_QA_ARTEFACT_PATH}",
-                     "${env.IOS_QA_ARTEFACT_PATH}"].each {
-                        sh label: "Create the `$it` folder",
-                                script: "mkdir -p $it"
-                    }
-
-                    dir("Angular") { 
-                        sh label: "Copy the QA .apk file to `${env.ANDROID_QA_ARTEFACT_PATH}`",
-                            script: "cp -R platforms/android/app/build/outputs/apk/debug/*.apk ${env.ANDROID_QA_ARTEFACT_PATH}"
-                        sh label: "Copy the QA .ipa file for device to `${env.IOS_QA_ARTEFACT_PATH}`",
-                            script: "cp -R platforms/ios/build/device/cordova-angular-sample-app-qa.ipa ${env.IOS_QA_ARTEFACT_PATH}" 
-                    }
-                }
-            }
-        }
-
         stage('build ios and android artefacts') { 
             steps { 
                 dir("Angular") { 
