@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button id="back-button-transaction" text="Showcases"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Transactions</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="ion-padding">
+    <ion-card-title>
+      Items
+    </ion-card-title>
+    <ion-button *ngFor="let item of items; let i = index;" (click)="addToCart(item)" expand="block"
+      id="btn-transaction-{{i}}">
+      {{item.title}} {{ item.price | currency:'EUR':'symbol'}}
+      <ion-icon name="cart" slot="start"></ion-icon>
+    </ion-button>
+  </ion-card>
+  <ion-card style="min-height: 180px;">
+    <ion-card-title class="ion-padding">
+      Cart
+    </ion-card-title>
+    <div id="empty-cart" *ngIf="cart && cart.length === 0 && cartLoaded">
+      <ion-icon name="cart" class="empty-icon-circle empty-icon-color" style="height: 80px; width: 80px;"></ion-icon>
+      <br>
+      <strong class="capitalize">
+        <ion-text style="color:rgb(100, 100, 100)">Your cart is empty</ion-text>
+      </strong>
+    </div>
+
+    <ion-list *ngIf="cart.length > 0" lines="none">
+      <ion-item *ngFor="let item of cart">
+        <div class="item_inner">
+          <div class="item_content">
+            <div class="item_box d-flex">
+
+              <div class="item_info">
+                <h2 class="d-flex"> {{item.title}} </h2>
+                <ion-row>
+                  <ion-col size="6">
+                    <p>
+                      <span>{{item.description}}</span>
+                    </p>
+                  </ion-col>
+
+                  <ion-col size="6" class="d-flex">
+                    <h4 class="end">
+                      <span class="end add_remove_btn">
+                        <small tappable (click)="updateCart(item,'remove')" class="remove_icon">-</small>
+                        <strong class="ion-text-center">{{item.amount}}</strong>
+                        <small tappable (click)="updateCart(item,'add')" class="add_icon">+</small>
+                      </span>
+                      &nbsp;&nbsp;&nbsp;
+                      <span class="item_price">
+                        {{item.price | currency:'EUR':'symbol'}}
+                      </span>
+                    </h4>
+                  </ion-col>
+                </ion-row>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ion-item>
+
+
+    </ion-list>
+  </ion-card>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <div class="details" *ngIf="nb_articles > 0 && cartLoaded">
+    <h2 class="d-flex">Total<span class="end">{{total | currency:'EUR':'symbol'}}</span></h2>
+
+  </div>
+  <div *ngIf="nb_articles > 0 && cartLoaded" tappable class="confirm_order" (click)="sendTransaction(true)">
+    <h2 class="d-flex">Confirm order (identified) <span class="end">{{total | currency:'EUR':'symbol'}}</span></h2>
+  </div>
+  <div *ngIf="nb_articles > 0 && cartLoaded" tappable class="confirm_order" (click)="sendTransaction(false)">
+    <h2 class="d-flex">Confirm order (unidentified) <span class="end">{{total | currency:'EUR':'symbol'}}</span></h2>
+  </div>
+</ion-footer>
