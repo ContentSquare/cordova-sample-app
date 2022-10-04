@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
 import { CurrencyCode, TransactionItem, ContentsquareCDVPlugin } from '@contentsquare/cordova-plugin-types';
 import { Item } from 'src/app/models/item';
 import { CartService } from 'src/app/services/cart.service';
@@ -20,21 +20,21 @@ export class TransactionsPage implements OnInit {
   nb_articles: number;
   public items: Item[] = [
     {
-      title: 'Article1',
+      title: 'Item1',
       price: 10,
       description: 'This is the description of art 1',
       images: []
     },
     {
       id: 'it_3534',
-      title: 'Article2',
+      title: 'Item2',
       price: 15,
       description: 'This is the description of art 2',
       images: []
     },
   ];
 
-  constructor(public cartSvc: CartService) { }
+  constructor(public cartSvc: CartService, private ngZone: NgZone) { }
 
   ngOnInit() {
   }
@@ -53,12 +53,15 @@ export class TransactionsPage implements OnInit {
 
     ContentsquarePlugin.sendTransaction(transactionItem, (ret) => {
       console.log(ret);
-      this.cartSvc.resetCard();
+      this.ngZone.run(() => {
+        this.cartSvc.resetCard();
+      });
     }, (message) => {
-      this.cartSvc.resetCard();
+      this.ngZone.run(() => {
+        this.cartSvc.resetCard();
+      });
       console.log(message);
     });
-
   }
 
   ionViewWillEnter() {

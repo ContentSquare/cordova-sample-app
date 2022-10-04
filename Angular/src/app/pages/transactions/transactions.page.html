@@ -75,10 +75,11 @@
     <h2 class="d-flex">Total<span class="end">{{total | currency:'EUR':'symbol'}}</span></h2>
 
   </div>
-  <div *ngIf="nb_articles > 0 && cartLoaded" tappable class="confirm_order" (click)="sendTransaction(true)">
+  <div *ngIf="nb_articles > 0 && cartLoaded" class="confirm_order" (click)="sendTransaction(true)">
     <h2 class="d-flex">Confirm order (identified) <span class="end">{{total | currency:'EUR':'symbol'}}</span></h2>
   </div>
   <div *ngIf="nb_articles > 0 && cartLoaded" tappable class="confirm_order" (click)="sendTransaction(false)">
     <h2 class="d-flex">Confirm order (unidentified) <span class="end">{{total | currency:'EUR':'symbol'}}</span></h2>
   </div>
+  <p>&nbsp;</p>
 </ion-footer>

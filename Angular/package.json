@@ -88,12 +88,12 @@
       "cordova-plugin-ionic-webview": {},
       "cordova-plugin-ionic-keyboard": {},
       "cordova-plugin-customurlscheme": {
-        "URL_SCHEME": "cs-com.contentsquare.sampleapp.cordova.angular.qa"
+        "URL_SCHEME": "cs-com.contentsquare.sampleapp.cordova.angular"
       }
     },
     "platforms": [
-      "ios",
-      "android"
+      "android",
+      "ios"
     ]
   }
 }
