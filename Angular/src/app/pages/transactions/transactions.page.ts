@@ -10,6 +10,9 @@ declare const ContentsquarePlugin: ContentsquareCDVPlugin;
   templateUrl: './transactions.page.html',
   styleUrls: ['./transactions.page.scss'],
 })
+
+// This class showcases how to track purchases made by an user with CustomerTransactions
+// Add some items to the cart, then validate it to send the transaction
 export class TransactionsPage implements OnInit {
 
   cart: Item[] = [];
@@ -39,6 +42,8 @@ export class TransactionsPage implements OnInit {
   ngOnInit() {
   }
 
+  // As a transaction represents a purchase made by a customer, you don't send the transaction as soon as the user adds an item to the cart
+  // Wait for the user to validate the purchase
   sendTransaction(isTransactionIdentified: boolean) {
     const transactionItem: TransactionItem = {
       transactionValue: this.cartSvc.total,
@@ -51,6 +56,7 @@ export class TransactionsPage implements OnInit {
 
     console.log('Send transaction ', transactionItem);
 
+    // Use Angular's ngZone in the callbacks methods so that Angular autodetects changes and update UI
     ContentsquarePlugin.sendTransaction(transactionItem, (ret) => {
       console.log(ret);
       this.ngZone.run(() => {
