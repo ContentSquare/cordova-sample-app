@@ -4,19 +4,14 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <p class="ion-padding-horizontal">We and our partners store and/or access information on a device, such as cookies and
-    process personal data,
-    such as unique identifiers and standard information sent by a device for personalised ads and content,
-    ad and content measurement, and audience insights, as well as to develop and improve products.
-    With your permission we and our partners may use precise geolocation data and identification through device
-    scanning.
-    You may click to consent to our and our partners’ processing as described above.
-    Alternatively you may access more detailed information and change your preferences before consenting or to refuse
-    consenting.
-    Please note that some processing of your personal data may not require your consent, but you have a right to object
-    to such processing.
+  <p class="ion-padding-horizontal">Contentsquare collects usage data on your app.
+    By default, the SDK will consider every new user to be opted-out. To start tracking, the SDK Opt-in API must be
+    called.
 
-    You can change your preferences at any time on the Privacy page.</p>
+    You are responsible for creating the UI asking the user for his consent and allowing him to manage his privacy
+    settings and then calling the appropriate Contentsquare following functions (opt-in, opt-out, forget me...).
+
+    The user can change his preferences at any time in the Privacy page.</p>
   <ion-item>
     <ion-label class="ion-text-wrap" for="terms">Do you accept the terms and conditions?</ion-label>
     <ion-button color="success" expand="block" (click)="accept()">Accept</ion-button>
