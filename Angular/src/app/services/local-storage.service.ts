@@ -30,5 +30,5 @@ export class LocalStorageService {
   onFirstLaunch(){
     localStorage.setItem('isFirstLaunch', 'false');
   }
-  
+
 }
