@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.contentsquare.sampleapp.cordova.angular" version="0.2.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>cordova-angular-sample-app</name>
-    <description>A sample app Ionic/Angular/Cordova. Implements the basic functionalities of the Contentsquare Cordova plugin<</description>
-    <author email="hi@ionicframework.com" href="https://contentsquare.com/">Contentsquare Mobile Team</author>
+    <description>cordova-angular-sample-app</description>
+    <author email="mobile@contentsquare.com">Contentsquare Mobile Team</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
