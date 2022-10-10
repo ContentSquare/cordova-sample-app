@@ -9,7 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { GdprConsentComponent } from './components/gdpr-consent/gdpr-consent.component';
 
 @NgModule({
-  declarations: [AppComponent, GpdrConsentComponent],
+  declarations: [AppComponent, GdprConsentComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
