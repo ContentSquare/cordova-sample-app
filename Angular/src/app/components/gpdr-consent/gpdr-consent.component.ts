@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ContentsquareCDVPlugin } from '@contentsquare/cordova-plugin-types';
 import { ModalController } from '@ionic/angular';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
+
+declare var ContentsquarePlugin: ContentsquareCDVPlugin;
 
 @Component({
   selector: 'app-gpdr-consent',
@@ -17,6 +20,7 @@ export class GpdrConsentComponent implements OnInit {
     console.log('Accept');
     this.localStorageSvc.acceptPolicy();
     this.localStorageSvc.onFirstLaunch();
+    this.optIn();
     this.modalCtrl.dismiss();
   }
 
@@ -24,7 +28,24 @@ export class GpdrConsentComponent implements OnInit {
     console.log('Reject');
     this.localStorageSvc.denyPolicy();
     this.localStorageSvc.onFirstLaunch();
+    this.optOut();
     this.modalCtrl.dismiss();
+  }
+
+  optIn() {
+    ContentsquarePlugin.optIn(() => {
+      console.log('Opted in');
+    }, (err) => {
+      console.log('Opted out err =>', err);
+    });
+  }
+
+  optOut() {
+    ContentsquarePlugin.optOut(() => {
+      console.log('Opted out');
+    }, (err) => {
+      console.log('Opted out err =>', err);
+    });
   }
 
 }
