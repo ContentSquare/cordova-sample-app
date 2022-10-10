@@ -34,7 +34,7 @@ export class AppComponent {
 
       // At first launch, we present a modal to ask the user to accept the Privacy Policy.
       if (this.isFirstLaunch) {
-        this.openGPDR();
+        this.openGDPR();
       }
     });
   }
