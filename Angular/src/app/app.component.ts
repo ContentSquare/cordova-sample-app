@@ -42,7 +42,7 @@ export class AppComponent {
   openGDPR() {
     this.modalCtrl
       .create({
-        component: GpdrConsentComponent,
+        component: GdprConsentComponent,
         backdropDismiss: false
       })
       .then((modal) => {
