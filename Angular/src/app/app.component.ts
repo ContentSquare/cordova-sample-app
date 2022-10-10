@@ -39,7 +39,7 @@ export class AppComponent {
     });
   }
 
-  openGPDR() {
+  openGDPR() {
     this.modalCtrl
       .create({
         component: GpdrConsentComponent,
