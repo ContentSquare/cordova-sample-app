@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { GpdrConsentComponent } from './gpdr-consent.component';
+import { GdprConsentComponent } from './gdpr-consent.component';
 
-describe('GpdrConsentComponent', () => {
-  let component: GpdrConsentComponent;
-  let fixture: ComponentFixture<GpdrConsentComponent>;
+describe('GdprConsentComponent', () => {
+  let component: GdprConsentComponent;
+  let fixture: ComponentFixture<GdprConsentComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ GpdrConsentComponent ],
+      declarations: [ GdprConsentComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(GpdrConsentComponent);
+    fixture = TestBed.createComponent(GdprConsentComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

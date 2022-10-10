@@ -6,11 +6,11 @@ import { LocalStorageService } from 'src/app/services/local-storage.service';
 declare var ContentsquarePlugin: ContentsquareCDVPlugin;
 
 @Component({
-  selector: 'app-gpdr-consent',
-  templateUrl: './gpdr-consent.component.html',
-  styleUrls: ['./gpdr-consent.component.scss'],
+  selector: 'app-gdpr-consent',
+  templateUrl: './gdpr-consent.component.html',
+  styleUrls: ['./gdpr-consent.component.scss'],
 })
-export class GpdrConsentComponent implements OnInit {
+export class GdprConsentComponent implements OnInit {
 
   constructor(private modalCtrl: ModalController, private localStorageSvc: LocalStorageService) { }
 
