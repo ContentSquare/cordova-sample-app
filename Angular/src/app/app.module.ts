@@ -6,7 +6,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { GpdrConsentComponent } from './components/gpdr-consent/gpdr-consent.component';
+import { GdprConsentComponent } from './components/gdpr-consent/gdpr-consent.component';
 
 @NgModule({
   declarations: [AppComponent, GpdrConsentComponent],
