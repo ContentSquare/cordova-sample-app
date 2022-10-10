@@ -43,10 +43,10 @@ export class PrivacyPage implements OnInit {
   toggleAcceptPolicy(ev) {
     if (ev.detail.checked === true) {
       this.localStorageSvc.acceptPolicy();
-      //this.optIn();
+      this.optIn();
     } else {
       this.localStorageSvc.denyPolicy();
-      //this.optOut();
+      this.optOut();
     }
   }
 
