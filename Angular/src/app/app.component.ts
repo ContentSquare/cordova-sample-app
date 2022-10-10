@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ModalController, Platform } from '@ionic/angular';
 import { ContentsquareCDVPlugin } from '@contentsquare/cordova-plugin-types';
-import { GpdrConsentComponent } from './components/gpdr-consent/gpdr-consent.component';
+import { GdprConsentComponent } from './components/gdpr-consent/gdpr-consent.component';
 import { LocalStorageService } from './services/local-storage.service';
 
 declare const window: any;
