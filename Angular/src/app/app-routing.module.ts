@@ -26,7 +26,7 @@ const routes: Routes = [
   {
     path: 'dynamic-variables',
     loadChildren: () => import('./pages/dynamic-variables/dynamic-variables.module').then( m => m.DynamicVariablesPageModule)
-  },
+  }
 ];
 
 @NgModule({

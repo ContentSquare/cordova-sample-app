@@ -31,10 +31,6 @@ gulp.task('set-package-name-qa', gulp.series(async function () {
   configXML.childNamed("name").children[0].text = appNameQA;
   configXML.childNamed("name").firstChild.text = appNameQA;
   configXML.childNamed("name").lastChild.text = appNameQA;
-  configXML.childNamed("description").val = appNameQA;
-  configXML.childNamed("description").children[0].text = appNameQA;
-  configXML.childNamed("description").firstChild.text = appNameQA;
-  configXML.childNamed("description").lastChild.text = appNameQA;
   fs.writeFileSync("config.xml", configXML.toString())
 }));
 
@@ -45,10 +41,6 @@ gulp.task('set-package-name', gulp.series(async function () {
   configXML.childNamed("name").children[0].text = appName;
   configXML.childNamed("name").firstChild.text = appName;
   configXML.childNamed("name").lastChild.text = appName;
-  configXML.childNamed("description").val = appName;
-  configXML.childNamed("description").children[0].text = appName;
-  configXML.childNamed("description").firstChild.text = appName;
-  configXML.childNamed("description").lastChild.text = appName;
   fs.writeFileSync("config.xml", configXML.toString())
 }));
 

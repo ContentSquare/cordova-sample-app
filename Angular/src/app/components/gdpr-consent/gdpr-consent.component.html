@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Privacy Policy</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <p class="ion-padding-horizontal">Contentsquare collects usage data on your app.
+    By default, the SDK will consider every new user to be opted-out. To start tracking, the SDK Opt-in API must be
+    called.
+
+    You are responsible for creating the UI asking the user for his consent and allowing him to manage his privacy
+    settings and then calling the appropriate Contentsquare following functions (opt-in, opt-out, forget me...).
+
+    The user can change his preferences at any time in the Privacy page.</p>
+  <ion-item>
+    <ion-label class="ion-text-wrap" for="terms">Do you accept the terms and conditions?</ion-label>
+    <ion-button color="success" expand="block" (click)="accept()">Accept</ion-button>
+  </ion-item>
+  <ion-item>
+    <ion-label class="ion-text-wrap" for="terms">If you reject the Privacy Policy, Contentsquare SDK features will be
+      disabled. You can accept the policy in the "Privacy" page</ion-label>
+    <ion-button color="warning" expand="block" (click)="reject()">Reject</ion-button>
+  </ion-item>
+</ion-content>
