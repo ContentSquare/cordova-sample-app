@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ModalController, Platform } from '@ionic/angular';
 import { ContentsquareCDVPlugin } from '@contentsquare/cordova-plugin-types';
-import { GpdrConsentComponent } from './components/gpdr-consent/gpdr-consent.component';
+import { GdprConsentComponent } from './components/gdpr-consent/gdpr-consent.component';
 import { LocalStorageService } from './services/local-storage.service';
 
 declare const window: any;
@@ -32,17 +32,17 @@ export class AppComponent {
         });
       };
 
-      // At first launch, we present a modal for asking user to accept the Privacy Policy.
+      // At first launch, we present a modal to ask the user to accept the Privacy Policy.
       if (this.isFirstLaunch) {
-        this.openGPDR();
+        this.openGDPR();
       }
     });
   }
 
-  openGPDR() {
+  openGDPR() {
     this.modalCtrl
       .create({
-        component: GpdrConsentComponent,
+        component: GdprConsentComponent,
         backdropDismiss: false
       })
       .then((modal) => {
