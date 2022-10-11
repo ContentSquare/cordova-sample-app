@@ -20,33 +20,24 @@ export class PrivacyPage implements OnInit {
   // Get the local stored value of the userConsent to sync with the toggle button
   ngOnInit() {
     this.userConsent = this.localStorageSvc.getUserConsent();
-    console.log('userConsent:', this.userConsent);
+    console.log('currentUserConsent:', this.userConsent);
   }
 
-  optIn() {
-    ContentsquarePlugin.optIn(() => {
-      console.log('Opted in');
-    }, (err) => {
-      console.log('Opted out err =>', err);
-    });
-  }
-
-  optOut() {
-    ContentsquarePlugin.optOut(() => {
-      console.log('Opted out');
-    }, (err) => {
-      console.log('Opted out err =>', err);
-    });
-  }
-
-  // We store locally if the user has accepted the Privacy Policy.
+  // We call the SDK optIn/optOut methods and store locally if the user has accepted the Privacy Policy.
   toggleAcceptPolicy(ev) {
     if (ev.detail.checked === true) {
-      this.localStorageSvc.acceptPolicy();
-      this.optIn();
+      ContentsquarePlugin.optIn(() => {
+        this.localStorageSvc.acceptPolicy();
+      }, (err) => {
+        console.log('Opted out err =>', err);
+      });
+
     } else {
-      this.localStorageSvc.denyPolicy();
-      this.optOut();
+      ContentsquarePlugin.optOut(() => {
+        this.localStorageSvc.denyPolicy();
+      }, (err) => {
+        console.log('Opted out err =>', err);
+      });
     }
   }
 
