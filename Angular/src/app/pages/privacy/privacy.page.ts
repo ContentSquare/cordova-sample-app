@@ -20,7 +20,7 @@ export class PrivacyPage implements OnInit {
   // Get the local stored value of the userConsent to sync with the toggle button
   ngOnInit() {
     this.userConsent = this.localStorageSvc.getUserConsent();
-    console.log('currentUserConsent:', this.userConsent);
+    console.log('Current userConsent:', this.userConsent);
   }
 
   // We call the SDK optIn/optOut methods and store locally if the user has accepted the Privacy Policy.
