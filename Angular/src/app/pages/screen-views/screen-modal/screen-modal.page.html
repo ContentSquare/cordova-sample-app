@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="Screen Views"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Modal</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  Tapping the Open Modal button will present a modal. When the modal opens it sends a screen view, and when it's closed, this screen will also send a screen view.
+  <br><br>
+  <ion-button (click)="openModal()">
+    Open Modal
+  </ion-button>
+</ion-content>

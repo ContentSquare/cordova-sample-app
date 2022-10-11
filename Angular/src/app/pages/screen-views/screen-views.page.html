@@ -8,5 +8,15 @@
 </ion-header>
 
 <ion-content>
-  Screen Views content
+  <ion-list>
+    <ion-item type="button" (click)="goToPage('screen-default')">
+      <h2>Default Screen</h2>
+    </ion-item>
+    <ion-item type="button" (click)="goToPage('screen-modal')">
+      <h2>Modal Screen</h2>
+    </ion-item>
+    <ion-item type="button" (click)="goToPage('screen-slide')">
+      <h2>Slide Screens</h2>
+    </ion-item>
+  </ion-list>
 </ion-content>
