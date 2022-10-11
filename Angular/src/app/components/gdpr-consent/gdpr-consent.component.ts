@@ -14,38 +14,30 @@ export class GdprConsentComponent implements OnInit {
 
   constructor(private modalCtrl: ModalController, private localStorageSvc: LocalStorageService) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
-  accept(){
+  // We call the optIn() method of the SDK and store the value locally
+  accept() {
     console.log('Accept');
-    this.localStorageSvc.acceptPolicy();
-    this.localStorageSvc.onFirstLaunch();
-    this.optIn();
-    this.modalCtrl.dismiss();
-  }
-
-  reject(){
-    console.log('Reject');
-    this.localStorageSvc.denyPolicy();
-    this.localStorageSvc.onFirstLaunch();
-    this.optOut();
-    this.modalCtrl.dismiss();
-  }
-
-  optIn() {
     ContentsquarePlugin.optIn(() => {
-      console.log('Opted in');
+      this.localStorageSvc.acceptPolicy();
+      this.localStorageSvc.onFirstLaunch();
     }, (err) => {
       console.log('Opted out err =>', err);
     });
+    this.modalCtrl.dismiss();
   }
 
-  optOut() {
+  // We call the optOut() method of the SDK and store the value locally
+  reject() {
+    console.log('Reject');
     ContentsquarePlugin.optOut(() => {
-      console.log('Opted out');
+      this.localStorageSvc.denyPolicy();
+      this.localStorageSvc.onFirstLaunch();
     }, (err) => {
       console.log('Opted out err =>', err);
     });
+    this.modalCtrl.dismiss();
   }
 
 }
