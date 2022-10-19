@@ -27,7 +27,7 @@ export class ScreenSlidePage implements OnInit {
   ngOnInit() {
   }
 
-  // We detect when the slide changes and sends the corresponding screen name
+  // We detect when the slide changes and send the corresponding screen name
   onSlideChange() {
     console.log('Slide Changed');
     this.sendScreenName(this.slideNames[this.slides.activeIndex]);
