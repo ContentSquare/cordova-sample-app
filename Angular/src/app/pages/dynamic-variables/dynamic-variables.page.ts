@@ -81,7 +81,7 @@ export class DynamicVariablesPage implements OnInit {
       });
   }
 
-  // Return if vlaue is a positive number
+  // Return if value is a positive number
   isNumeric(value) {
     return /^\d+$/.test(value);
   }
