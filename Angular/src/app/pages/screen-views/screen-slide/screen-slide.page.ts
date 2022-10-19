@@ -4,8 +4,8 @@ import { IonicSlides } from '@ionic/angular';
 import { EventsParams } from 'swiper/angular';
 import { ContentsquareCDVPlugin } from '@contentsquare/cordova-plugin-types';
 import { Router } from '@angular/router';
+import { ContentsquareService } from 'src/app/services/contentsquare.service';
 
-declare const ContentsquarePlugin: ContentsquareCDVPlugin;
 
 SwiperCore.use([Autoplay, Keyboard, Pagination, Scrollbar, Zoom, IonicSlides]);
 
@@ -22,7 +22,7 @@ export class ScreenSlidePage implements OnInit {
 
   slideNames = ['slide1-screen', 'slide2-screen', 'slide3-screen'];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private csService: ContentsquareService) { }
 
   ngOnInit() {
   }
@@ -42,12 +42,7 @@ export class ScreenSlidePage implements OnInit {
 
   // We prefix the slide screen name with the router url
   sendScreenName(slideScreenName) {
-    console.log('Send screen name: ', this.router.url + '/' + slideScreenName);
-    ContentsquarePlugin.sendScreenName(this.router.url + '/' + slideScreenName, () => {
-      // Success
-    }, function (err) {
-      console.log('Err', err);
-    });
+    this.csService.sendScreenName(this.router.url + '/' + slideScreenName);
   }
 
 }

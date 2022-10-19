@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ContentsquareCDVPlugin } from '@contentsquare/cordova-plugin-types';
 import { ModalController } from '@ionic/angular';
 import { ModalScreenComponent } from 'src/app/components/modal-screen/modal-screen.component';
+import { ContentsquareService } from 'src/app/services/contentsquare.service';
 
-declare const ContentsquarePlugin: ContentsquareCDVPlugin;
 
 @Component({
   selector: 'app-screen-modal',
@@ -15,7 +14,7 @@ declare const ContentsquarePlugin: ContentsquareCDVPlugin;
 // This class showcases how to implement Screenviews for modal pages
 export class ScreenModalPage implements OnInit {
 
-  constructor(private modalCtrl: ModalController, private router: Router) { }
+  constructor(private modalCtrl: ModalController, private router: Router, private csService: ContentsquareService) { }
 
   ngOnInit() {
   }
@@ -30,22 +29,15 @@ export class ScreenModalPage implements OnInit {
 
     // When the user close the modal, this screen sends its name again
     modal.onDidDismiss().then(() => {
-      this.sendScreenName(this.router.url);
+      this.csService.sendScreenName(this.router.url);
     });
 
     modal.present();
 
     // When the user opens the modal, we send the screen name of the modal
-    this.sendScreenName(this.router.url + '/MyModalScreen');
+    this.csService.sendScreenName(this.router.url + '/my-modal-screen');
   }
 
-  sendScreenName(screenName) {
-    console.log('Send screen name: ', screenName);
-    ContentsquarePlugin.sendScreenName(screenName, () => {
-      // Success
-    }, function (err) {
-      console.log('Err', err);
-    });
-  }
+
 
 }
