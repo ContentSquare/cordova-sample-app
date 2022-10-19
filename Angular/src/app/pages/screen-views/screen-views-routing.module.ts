@@ -19,6 +19,10 @@ const routes: Routes = [
   {
     path: 'screen-slide',
     loadChildren: () => import('./screen-slide/screen-slide.module').then( m => m.ScreenSlidePageModule)
+  },
+  {
+    path: 'screen-tab-container',
+    loadChildren: () => import('./screen-tab/screen-tab-container.module').then( m => m.ScreenTabContainerPageModule)
   }
 ];
 
