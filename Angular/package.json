@@ -9,7 +9,10 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "add-url-scheme": "ionic cordova plugin add cordova-plugin-customurlscheme --variable URL_SCHEME=cs-com.contentsquare.sampleapp.cordova.angular",
+    "build-ios": "gulp cordova-angular-sample-app && ionic cordova platform rm ios && npm run add-url-scheme && ionic cordova platform add ios && ionic cordova build ios --emulator --release --prod --buildConfig",
+    "build-android": "gulp cordova-angular-sample-app && ionic cordova platform rm android && npm run add-url-scheme && ionic cordova platform add android && ionic cordova build android --release --prod --buildConfig"
   },
   "private": true,
   "dependencies": {
@@ -23,6 +26,7 @@
     "@ionic/cordova-builders": "^7.0.0",
     "ionicons": "^6.0.3",
     "rxjs": "~6.6.0",
+    "swiper": "^8.4.3",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"
   },
@@ -32,7 +36,7 @@
     "@angular-eslint/eslint-plugin": "~13.0.1",
     "@angular-eslint/eslint-plugin-template": "~13.0.1",
     "@angular-eslint/template-parser": "~13.0.1",
-    "@angular/cli": "^14.0.0",
+    "@angular/cli": "14.2.4",
     "@angular/compiler": "^14.0.0",
     "@angular/compiler-cli": "^14.0.0",
     "@angular/language-service": "^14.0.0",
@@ -44,6 +48,7 @@
     "@types/node": "^12.11.1",
     "@typescript-eslint/eslint-plugin": "5.3.0",
     "@typescript-eslint/parser": "5.3.0",
+    "cordova-android": "^10.1.2",
     "cordova-ios": "^6.2.0",
     "cordova-plugin-add-swift-support": "^2.0.2",
     "cordova-plugin-customurlscheme": "^5.0.2",
@@ -56,6 +61,8 @@
     "eslint-plugin-import": "2.22.1",
     "eslint-plugin-jsdoc": "30.7.6",
     "eslint-plugin-prefer-arrow": "1.2.2",
+    "gulp": "^4.0.2",
+    "gulp-util": "^3.0.8",
     "jasmine-core": "~3.8.0",
     "jasmine-spec-reporter": "~5.0.0",
     "karma": "~6.3.2",
@@ -66,7 +73,8 @@
     "karma-jasmine-html-reporter": "^1.5.0",
     "protractor": "~7.0.0",
     "ts-node": "~8.3.0",
-    "typescript": "~4.7.3"
+    "typescript": "~4.7.3",
+    "xmldoc": "^1.2.0"
   },
   "description": "A sample app Ionic/Angular/Cordova. Implements the basic functionalities of the Contentsquare Cordova plugin",
   "cordova": {
@@ -82,7 +90,8 @@
       }
     },
     "platforms": [
-      "ios"
+      "ios",
+      "android"
     ]
   }
 }

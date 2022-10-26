@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="Showcases"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Privacy</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-item lines="none">
+      <ion-label mode="md" position="fixed" style="flex: 0 0 100% !important">Accept Privacy Policy</ion-label>
+      <ion-toggle mode="md" (ionChange)="toggleAcceptPolicy($event)" [(ngModel)]="userConsent" slot="end"></ion-toggle>
+    </ion-item>
+  </ion-card>
+</ion-content>

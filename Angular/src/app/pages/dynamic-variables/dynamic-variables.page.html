@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="Showcases"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Dynamic Variables</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list lines="none">
+    <ion-card>
+      <h2>
+        This class showcases how to use dynamic variables to gather additional data about the session.
+
+      </h2>
+    </ion-card>
+    <ion-card>
+      <h2>
+        Dynamic Var with string value
+      </h2>
+      <div class="form">
+        <ion-item class="animate__animated animate__fadeInUp" lines="none" counter="true">
+          <ion-label mode="md" position="floating" class="ion-text-wrap">Key</ion-label>
+          <ion-input mode="md" [(ngModel)]="dynVarWithString.dynVarKey" required="true" maxlength="20" autocomplete="off"
+            inputmode="text"></ion-input>
+          <ion-note *ngIf="errors.dynVarWithStringKey" class="note-error">Key is mandatory</ion-note>
+
+        </ion-item>
+        <ion-item class="animate__animated animate__fadeInUp" lines="none" counter="true">
+          <ion-label mode="md" position="floating" class="ion-text-wrap">Value</ion-label>
+          <ion-input mode="md" [(ngModel)]="dynVarWithString.dynVarValue" required="true" maxlength="20" autocomplete="off"
+            inputmode="text"></ion-input>
+          <ion-note *ngIf="errors.dynVarWithStringValue" class="note-error">Value is mandatory</ion-note>
+        </ion-item>
+        <ion-button (click)="checkFieldsDynVarWithString()">
+          Send
+        </ion-button>
+      </div>
+    </ion-card>
+    <ion-card>
+      <h2>
+        Dynamic Var with int value
+      </h2>
+      <div class="form">
+        <ion-item class="animate__animated animate__fadeInUp" lines="none" counter="true">
+          <ion-label mode="md" position="floating" class="ion-text-wrap">Key</ion-label>
+          <ion-input mode="md" [(ngModel)]="dynVarWithInt.dynVarKey" required="true"  maxlength="20"
+            autocomplete="off" inputmode="text"></ion-input>
+          <ion-note *ngIf="errors.dynVarWithIntKey" class="note-error">Key is mandatory</ion-note>
+
+        </ion-item>
+        <ion-item class="animate__animated animate__fadeInUp" lines="none" counter="true">
+          <ion-label mode="md" position="floating" class="ion-text-wrap">Value</ion-label>
+          <ion-input mode="md" [(ngModel)]="dynVarWithInt.dynVarValue" required="true" type="number" inputmode="numeric">
+          </ion-input>
+          <ion-note *ngIf="errors.dynVarWithIntValue" class="note-error">Value must be a whole number</ion-note>
+        </ion-item>
+        <ion-button (click)="checkFieldsDynVarWithInt()">
+          Send
+        </ion-button>
+      </div>
+    </ion-card>
+
+  </ion-list>
+</ion-content>

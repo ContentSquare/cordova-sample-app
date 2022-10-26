@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
   },
   {
     path: '',
@@ -13,20 +13,20 @@ const routes: Routes = [
   },
   {
     path: 'privacy',
-    loadChildren: () => import('./privacy/privacy.module').then( m => m.PrivacyPageModule)
+    loadChildren: () => import('./pages/privacy/privacy.module').then( m => m.PrivacyPageModule)
   },
   {
     path: 'screen-views',
-    loadChildren: () => import('./screen-views/screen-views.module').then( m => m.ScreenViewsPageModule)
+    loadChildren: () => import('./pages/screen-views/screen-views.module').then( m => m.ScreenViewsPageModule)
   },
   {
     path: 'transactions',
-    loadChildren: () => import('./transactions/transactions.module').then( m => m.TransactionsPageModule)
+    loadChildren: () => import('./pages/transactions/transactions.module').then( m => m.TransactionsPageModule)
   },
   {
     path: 'dynamic-variables',
-    loadChildren: () => import('./dynamic-variables/dynamic-variables.module').then( m => m.DynamicVariablesPageModule)
-  },
+    loadChildren: () => import('./pages/dynamic-variables/dynamic-variables.module').then( m => m.DynamicVariablesPageModule)
+  }
 ];
 
 @NgModule({

@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="Screen Views"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Slides</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <swiper [spaceBetween]="10" [centeredSlides]="true" [pagination]="true" [navigation]="true"
+    (slideChange)="onSlideChange()" (swiper)="setSwiperInstance($event)">
+    <ng-template swiperSlide>
+      This section showcases triggering screen views for each page of a slide scroll view. Try scrolling horizontally
+    </ng-template>
+    <ng-template swiperSlide>This is the Slide 2</ng-template>
+    <ng-template swiperSlide>This is the Slide 3</ng-template>
+  </swiper>
+</ion-content>
